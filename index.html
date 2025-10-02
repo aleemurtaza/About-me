@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alee — Portfolio</title>
+  <meta name="description" content="Alee — Web Designer & Developer | WordPress, Shopify, UI/UX, Graphic Design" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa8bf;
+      --accent:#6ee7b7;
+      --accent-2:#60a5fa;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:16px;
+      --max-width:1100px;
+      --mono: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --serif: 'Merriweather', serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--mono);background:linear-gradient(180deg,var(--bg),#071022 120%);color:#e6eef8;line-height:1.45;padding-bottom:80px}
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:var(--max-width);margin:40px auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 6px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#04263b;font-family:var(--serif);font-size:20px}
+    nav{display:flex;gap:12px}
+    nav a{padding:8px 12px;border-radius:10px;background:transparent;color:var(--muted);font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-top:28px}
+    .hero-left{padding:28px;background:linear-gradient(180deg,var(--glass),transparent);border-radius:var(--radius)}
+    .eyebrow{color:var(--accent);font-weight:700;font-size:13px}
+    h1{margin:8px 0 6px;font-size:36px;font-weight:800}
+    h1 span{color:var(--accent)}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .cta-row{display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;border:0}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04263b}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .stats{display:flex;gap:12px}
+    .stat{flex:1;background:var(--glass-2);padding:12px;border-radius:12px;text-align:center}
+    .stat b{display:block;font-size:20px}
+
+    .hero-right .profile-pic img{width:100%;border-radius:12px;height:260px;object-fit:cover}
+    .skill-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .pill{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:600;color:var(--muted);font-size:13px}
+
+    section.projects{margin-top:28px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .proj{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+    .proj h3{margin:6px 0 10px}
+    .proj p{color:var(--muted);font-size:14px}
+    .proj .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .skill-row{display:flex;align-items:center;gap:12px}
+    .bar{flex:1;height:10px;background:rgba(255,255,255,0.06);border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px}
+
+    .testimonials{display:flex;flex-direction:column;gap:12px}
+    .test{padding:14px;border-radius:12px;background:var(--glass)}
+
+    form.contact{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    form .full{grid-column:1/-1}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px}
+
+    footer{margin-top:30px;padding:18px;text-align:center;color:var(--muted)}
+
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.projects-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.wrap{margin:18px;padding:18px}nav{display:none}.projects-grid{grid-template-columns:1fr}form.contact{grid-template-columns:1fr}}
+
+    .fade-up{transform:translateY(8px);opacity:0;animation:fadeUp .7s ease forwards}
+    @keyframes fadeUp{to{transform:none;opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">A</div>
+        <div>
+          <div style="font-weight:800">Alee Murtaza</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Web Designer • WordPress & Shopify</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left card fade-up">
+          <div class="eyebrow">Hey, I'm</div>
+          <h1>Alee — <span>Designer & Developer</span></h1>
+          <p class="lead">I build clear, conversion-focused websites and unforgettable brand experiences. WordPress, Shopify, UI/UX, and print — I ship practical design that actually works.</p>
+          <p class="lead"><a href="https://www.upwork.com/freelancers/~013f5a8d7e846f74f2?mp_source=share">Upwork Profile Link</a></p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-envelope"></i> Hire me</a>
+            <a class="btn btn-primary" href="https://www.upwork.com/freelancers/~013f5a8d7e846f74f2?mp_source=share">Upwork Profile</a>
+            <a class="btn btn-ghost" href="#projects"><i class="fa-solid fa-briefcase"></i> See work</a>
+          </div>
+
+          <div style="margin-top:18px" class="card">
+            <div class="stats">
+              <div class="stat"><b>120+</b><small style="color:var(--muted)">Projects</small></div>
+              <div class="stat"><b>3+</b><small style="color:var(--muted)">Years exp</small></div>
+              <div class="stat"><b>95%</b><small style="color:var(--muted)">Client sat.</small></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="card">
+            <div class="profile-pic"><img src="imachz/Alee.jpg" alt="Alee"></div>
+            <div style="margin-top:12px">
+              <div style="font-weight:800">Alee Murtaza</div>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Custom websites • E-commerce • Branding</div>
+              <div class="skill-list" style="margin-top:12px">
+                <span class="pill">WordPress</span>
+                <span class="pill">Shopify</span>
+                <span class="pill">Figma</span>
+                <span class="pill">SEO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <div style="font-weight:700;margin-bottom:8px"><i class="fa-solid fa-phone"></i> Contact</div>
+            <div style="color:var(--muted);font-size:14px"><i class="fa-solid fa-envelope"></i> alee.arfa1@.com</div>
+            <div style="color:var(--muted);font-size:14px"><i class="fa-solid fa-mobile"></i> +92 308 8099019</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" style="margin-top:24px">
+        <div class="card">
+          <h2 style="margin:0 0 8px">About</h2>
+          <p style="color:var(--muted)">I’m a practical designer who values clarity over flash. I merge classic design craft with modern workflows — building sites that are fast, accessible, and easy to manage. I especially love taking messy content and turning it into polished product-ready pages.</p>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <h2 style="margin-top:18px">Projects</h2>
+        <div class="projects-grid">
+          <article class="proj card">
+           
+            <h3>eCommerce Revamp</h3>
+            <p>Shopify store rebuild with faster checkout, improved product SEO and mobile-first UX.</p>
+            <div class="tags"><span class="pill">Shopify</span><span class="pill">SEO</span><span class="pill">Conversion</span></div>
+          </article>
+
+          <article class="proj card">
+         
+            <h3>Corporate Site</h3>
+            <p>Custom WordPress theme with dynamic sections, team page, and CRM integration.</p>
+            <div class="tags"><span class="pill">WordPress</span><span class="pill">Design</span></div>
+          </article>
+
+          <article class="proj card">
+            <h3>Branding & Print</h3>
+            <p>Logo, packaging, and brochure design for a local food brand — delivered print-ready files.</p>
+            <div class="tags"><span class="pill">Branding</span><span class="pill">Print</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" style="margin-top:22px">
+        <h2>Skills</h2>
+        <div class="card">
+          <div class="skills-grid">
+            <div>
+              <div style="font-weight:700">Front-end</div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">HTML/CSS</div><div class="bar"><i style="width:92%"></i></div></div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">JavaScript</div><div class="bar"><i style="width:72%"></i></div></div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">React</div><div class="bar"><i style="width:60%"></i></div></div>
+            </div>
+            <div>
+              <div style="font-weight:700">Platforms & Tools</div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">WordPress</div><div class="bar"><i style="width:94%"></i></div></div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">Shopify</div><div class="bar"><i style="width:90%"></i></div></div>
+              <div class="skill-row" style="margin-top:8px"><div style="width:90px">Figma</div><div class="bar"><i style="width:86%"></i></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:22px">
+        <h2>Testimonials</h2>
+        <div class="testimonials">
+          <div class="test card">“Alee transformed our eCommerce site into a fast, modern experience — conversions jumped within weeks.” — <strong>Ahmed Khan, Daraz.pk seller</strong></div>
+          <div class="test card">“Working with Alee was a smooth process, his custom WordPress design elevated our brand presence.” — <strong>Fatima Textile Mills, Lahore</strong></div>
+          <div class="test card">“Professional, creative, and timely — he delivered exactly what we needed for our Shopify store.” — <strong>Saeed Foods, Karachi</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Alee Murtaza</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      alert('Thanks, '+name+'! I got your message (demo form only).');
+      e.target.reset();
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
